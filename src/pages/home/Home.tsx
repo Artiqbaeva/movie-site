@@ -13,7 +13,7 @@ const Home = () => {
     <div className='container mx-auto'>
       {/* <Carousel/> */}
       <Hero/>
-      <div className='flex items-center justify-end mb-5 gap-3 cursor-pointer'  onClick={() => navigate('/movies')}>
+      <div className='flex items-center justify-end mb-5 mt-5 gap-3 cursor-pointer'  onClick={() => navigate('/movies')}>
         <p className='text-red-600'>Show all</p>  
         <img src={go} alt="" />
       </div>

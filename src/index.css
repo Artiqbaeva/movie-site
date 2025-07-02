@@ -63,4 +63,51 @@
   .ant-pagination-jump-next .ant-pagination-item-container .ant-pagination-item-ellipsis {
     color: #ffffff !important;
   }
+
+
+  /* Custom scrollbar styles */
+.scrollbar-thin {
+    scrollbar-width: thin;
+  }
   
+  .scrollbar-thumb-red-600 {
+    scrollbar-color: #dc2626 transparent;
+  }
+  
+  .scrollbar-track-gray-200 {
+    background-color: transparent;
+  }
+  
+  .dark .scrollbar-track-gray-800 {
+    background-color: #1f2937;
+  }
+  
+  .dark .scrollbar-thumb-red-600 {
+    scrollbar-color: #dc2626 transparent;
+  }
+  
+  /* Webkit (Chrome, Edge, Safari) */
+  .scrollbar-thin::-webkit-scrollbar {
+    height: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: #dc2626;
+    border-radius: 8px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background-color: #e5e7eb;
+  }
+  
+  .dark .scrollbar-thin::-webkit-scrollbar-track {
+    background-color: #1f2937;
+  }
+  
+  .dark .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: #dc2626;
+  }
+
+  .mySwiper img {
+    cursor: pointer;
+  }
