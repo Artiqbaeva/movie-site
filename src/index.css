@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+.container{
+    max-width: 1180px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ant-pagination-item-active {
+    background-color: #b91c1c !important; 
+    border-color: #b91c1c !important;
+  }
+  
+  .ant-pagination-item-active a {
+    color: #ffffff !important; 
+  }
+  
+  
+  .ant-pagination-item {
+    border: none !important; 
+    background-color: #111111 !important; 
+  }
+  
+  .ant-pagination-item a {
+    color: #ffffff !important; 
+  }
+  
+
+  .ant-pagination-item:hover {
+    background-color: #b91c1c !important;
+  }
+  
+  .ant-pagination-item:hover a {
+    color: #ffffff !important; 
+  }
+  
+  
+  .ant-pagination-prev,
+  .ant-pagination-next {
+    border: none !important;
+  }
+  
+  .ant-pagination-prev a,
+  .ant-pagination-next a {
+    color: #ffffff !important;
+  }
+  
+
+  .ant-pagination-prev:hover,
+  .ant-pagination-next:hover {
+    background-color: #b91c1c !important;
+  }
+  
+  .ant-pagination-prev:hover a,
+  .ant-pagination-next:hover a {
+    color: #ffffff !important;
+  }
+
+  .ant-pagination-jump-prev .ant-pagination-item-container .ant-pagination-item-ellipsis,
+  .ant-pagination-jump-next .ant-pagination-item-container .ant-pagination-item-ellipsis {
+    color: #ffffff !important;
+  }
+  
