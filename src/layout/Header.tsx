@@ -30,7 +30,7 @@ const Header = () => {
   return (
     <>
      
-      <div className="container mx-auto ">
+      <div className="container mx-auto bg-[#111] fixed rigth-0 top-0 left-0 z-50 ">
         <nav className="flex justify-between  items-center px-6 py-4 bg-transparent dark:bg-black">
           <NavLink to="/">
             <img src={logo} className="cursor-pointer h-10" alt="Logo" />
@@ -55,7 +55,7 @@ const Header = () => {
       </div>
 
       
-      <div className="fixed bottom-0 left-0 right-0 bg-white dark:bg-black border-t border-gray-200 dark:border-[#111] flex justify-around items-center py-2 z-50">
+      <div className="fixed bottom-0 left-0 right-0 bg-[#111] dark:bg-black border-t border-[#111] dark:border-[#111] flex justify-around items-center py-2 z-50">
         <NavLink
           to="/"
           className="flex flex-col items-center text-white hover:text-red-500"

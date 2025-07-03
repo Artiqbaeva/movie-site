@@ -34,7 +34,7 @@ const Movies = () => {
   });
 
   return (
-    <div className="container mx-auto px-4 pb-10 space-y-12 min-h-[80vh]">
+    <div className="container mx-auto mt-18 px-4 pb-10 space-y-12 min-h-[80vh]">
       <section>
         <Genre data={genreData?.genres} />
       </section>

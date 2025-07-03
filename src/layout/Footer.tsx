@@ -24,7 +24,7 @@ const Footer = () => {
     className="h-12 mb-4 cursor-pointer"
     onClick={() => navigate("/")}
   />
-  <div className="flex gap-2 lg:flex-col sm:flex-row sm:justify-start sm:space-x-6 mt-4 cursor-pointer">
+  <div className="flex gap-1 flex-col lg:flex-row  sm:space-x-4 mt-4 cursor-pointer">
     <img
       src={playmarket}
       alt="Google Play"
@@ -90,7 +90,7 @@ const Footer = () => {
           <p className="mb-2 font-bold dark:text-gray-300">Contact us</p>
           <p className="text-red-500 mb-4 cursor-pointer">+998 (90) 897-33-38</p>
           <p className="mb-2 font-bold dark:text-gray-300">Social media</p>
-          <div className="flex space-x-4 mt-2">
+          <div className="flex space-x-4 mt-2 mb-8">
             <a href="#" className="dark:text-gray-50 hover:text-red-500">
               <i className="fab fa-facebook-f"></i>
             </a>
