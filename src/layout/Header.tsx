@@ -30,7 +30,7 @@ const Header = () => {
   return (
     <>
      
-      <div className="container mx-auto fixed top-0 left-0 right-0 z-50">
+      <div className="container mx-auto ">
         <nav className="flex justify-between  items-center px-6 py-4 bg-transparent dark:bg-black">
           <NavLink to="/">
             <img src={logo} className="cursor-pointer h-10" alt="Logo" />
