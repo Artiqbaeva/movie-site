@@ -47,7 +47,7 @@ const Header = () => {
     <FaRegBookmark />
     <span>Saved</span>
   </NavLink>
-  <NavLink className="flex flex-col  items-center space-x-1 hover:text-red-500" to="#">
+  <NavLink className="flex flex-col  items-center space-x-1 hover:text-red-500" to={"/search"}>
     <IoSearch />
     <span>Search</span>
   </NavLink>

@@ -1,28 +1,37 @@
 import { useMovie } from "@/api/hooks/useMovie";
 import MovieView from "@/components/movie-view/MovieView";
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { Pagination } from "antd";
 import { useGenre } from "@/api/hooks/useGenre";
 import Genre from "@/components/genre/Genre";
 import SkeletonCard from "@/components/skeleton/SkeletonCard";
+import { useParamsHook } from "@/hooks/UsePramsHook";
 
 const Movies = () => {
   const { getMovies } = useMovie();
   const { getGenres } = useGenre();
+  const { getParam, setParam } = useParamsHook();
+
+  useEffect(() => {
+    if (!getParam("genre")) {
+      setParam("genre", "all");
+    }
+  }, []);
+
+  const genre = getParam("genre") || "all";
+  const page = Number(getParam("page")) || 1;
+
+  const handlePagination = (value: number) => {
+    setParam("page", value.toString());
+  };
 
   const { data: genreData } = getGenres();
 
-  const [page, setPage] = useState(1);
-
   const { data, isLoading } = getMovies({
-    page: page,
+    page,
+    with_genres: genre === "all" ? undefined : genre,
     without_genres: "18,36,27,10749",
   });
-
-  const handlePageChange = (pageNumber: number) => {
-    setPage(pageNumber);
-    console.log("Selected page:", pageNumber);
-  };
 
   return (
     <div className="container mx-auto px-4 pb-10 space-y-12 min-h-[80vh]">
@@ -41,10 +50,10 @@ const Movies = () => {
       <section className="flex justify-center">
         <Pagination
           current={page}
-          total={500}
-          onChange={handlePageChange}
+          onChange={handlePagination}
           pageSize={20}
           showSizeChanger={false}
+          total={data?.total_results <= 10_000 ? data?.total_results : 10_000}
         />
       </section>
     </div>
