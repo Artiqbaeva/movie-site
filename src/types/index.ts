@@ -18,3 +18,13 @@ export interface ISlideType {
     backdrop_path?: string;
     poster_path?: string;
 };
+
+export interface IPerson {
+    id: number;
+    name: string;
+    biography: string;
+    birthday: string;
+    place_of_birth: string;
+    profile_path: string;
+  }
+  

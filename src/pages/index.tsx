@@ -3,7 +3,7 @@ import { lazy } from "react";
 import { useRoutes } from "react-router-dom";
 import Saved from "./saved/Saved";
 import MovieDetail from "./movies/MoviesDetail";
-import ActorView from "@/components/actor-view/ActorView";
+import ActorView from "@/pages/actor-view/PersonView";
 import Search from "./search/Search";
 
 const Layout = lazy(() => import("./layout/Layout"));

@@ -10,7 +10,7 @@ const MovieDetail = () => {
   const { id } = useParams();
   const { getMovieSingle, getMovieDetail } = useMovie();
   const antIcon = (
-    <LoadingOutlined style={{ fontSize: 40, color: "red" }} spin />
+    <LoadingOutlined style={{ fontSize: 40, color: "#dc2626" }} spin />
   );
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
