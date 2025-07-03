@@ -1,11 +1,12 @@
-import { NavLink } from "react-router-dom"
-import React from 'react'
-import logo from "../assets/main-logo.svg"
+import { NavLink } from "react-router-dom";
+import React from "react";
+import logo from "../assets/main-logo.svg";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
-import { GoHome  } from "react-icons/go";
+import { GoHome } from "react-icons/go";
 import { RiMovieLine } from "react-icons/ri";
-import { IoSearch} from "react-icons/io5";
+import { IoSearch } from "react-icons/io5";
 import { FaRegBookmark } from "react-icons/fa";
+
 const Header = () => {
   const [darkMode, setDarkMode] = React.useState(false);
 
@@ -16,66 +17,76 @@ const Header = () => {
       document.documentElement.classList.add("dark");
     }
   }, []);
-  
+
   const handleTheme = () => {
-    setDarkMode(prev => {
+    setDarkMode((prev) => {
       const newTheme = !prev;
       document.documentElement.classList.toggle("dark");
       localStorage.setItem("theme", newTheme ? "dark" : "light");
       return newTheme;
     });
   };
- 
+
   return (
-    <div className="container mx-auto " >
-       <nav className="flex justify-between items-center px-6 py-4 bg-transparent dark:bg-black ">
-       <div>
-      <NavLink to="/">
-        <img src={logo} className="cursor-pointer" alt="Logo" />
-      </NavLink>
-    </div>
-    <div className="space-x-6 hidden md:flex items-center">
-     <NavLink className="flex flex-col items-center space-x-1 hover:text-red-500" to={"/"}>
-    <GoHome  />
-    <span>Home</span>
-  </NavLink>
-  <NavLink className="flex flex-col  items-center space-x-1 hover:text-red-500" to={"/movies"}>
-    <RiMovieLine />
-    <span>Movies</span>
-  </NavLink>
-  <NavLink className="flex flex-col items-center space-x-1 hover:text-red-500" to={"/saved"}>
-    <FaRegBookmark />
-    <span>Saved</span>
-  </NavLink>
-  <NavLink className="flex flex-col  items-center space-x-1 hover:text-red-500" to={"/search"}>
-    <IoSearch />
-    <span>Search</span>
-  </NavLink>
-</div>
-      <div className="flex items-center space-x-4">
-      <div className="flex justify-between  items-center px-2 py-4   rounded">
-        <button
-          onClick={handleTheme}
-          className="text-gray-800 cursor-pointer dark:text-gray-200 flex items-center space-x-2"
-        >
-          {darkMode ? (
-            <SunIcon className="h-6 w-6 cursor-pointer" />
-          ) : (
-            <MoonIcon className="h-6 w-6 cursor-pointer" />
-          )}
-          
-        </button>
+    <>
+     
+      <div className="container mx-auto fixed top-0 left-0 right-0 z-50">
+        <nav className="flex justify-between  items-center px-6 py-4 bg-transparent dark:bg-black">
+          <NavLink to="/">
+            <img src={logo} className="cursor-pointer h-10" alt="Logo" />
+          </NavLink>
+
+          <div className="flex items-center space-x-4">
+            <button
+              onClick={handleTheme}
+              className="text-gray-800 cursor-pointer dark:text-gray-200"
+            >
+              {darkMode ? (
+                <SunIcon className="h-6 w-6 cursor-pointer" />
+              ) : (
+                <MoonIcon className="h-6 w-6 cursor-pointer" />
+              )}
+            </button>
+            <button className="bg-red-600 px-4 py-2 rounded text-white cursor-pointer">
+              Login
+            </button>
+          </div>
+        </nav>
       </div>
 
-      <div>
-        <button className="bg-red-600 px-4 py-2 rounded text-white cursor-pointer">Login</button>
-      </div>
-    </div>
-    </nav>
       
-  
-    </div>
-  )
-}
+      <div className="fixed bottom-0 left-0 right-0 bg-white dark:bg-black border-t border-gray-200 dark:border-[#111] flex justify-around items-center py-2 z-50">
+        <NavLink
+          to="/"
+          className="flex flex-col items-center text-white hover:text-red-500"
+        >
+          <GoHome className="w-6 h-6" />
+          <span className="text-xs">Home</span>
+        </NavLink>
+        <NavLink
+          to="/movies"
+          className="flex flex-col items-center text-white hover:text-red-500"
+        >
+          <RiMovieLine className="w-6 h-6" />
+          <span className="text-xs">Movies</span>
+        </NavLink>
+        <NavLink
+          to="/saved"
+          className="flex flex-col items-center text-white hover:text-red-500"
+        >
+          <FaRegBookmark className="w-6 h-6" />
+          <span className="text-xs">Saved</span>
+        </NavLink>
+        <NavLink
+          to="/search"
+          className="flex flex-col items-center text-white hover:text-red-500"
+        >
+          <IoSearch className="w-6 h-6" />
+          <span className="text-xs">Search</span>
+        </NavLink>
+      </div>
+    </>
+  );
+};
 
-export default Header
+export default Header;
