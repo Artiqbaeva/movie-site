@@ -9,12 +9,12 @@ import { api } from "@/api";
 import { IMAGE_URL } from "@/const";
 import type { ISlideType } from "@/types";
 import type { Swiper as SwiperType } from "swiper";
-import HeroSkeleton from "@/components/skeleton/HeroSkeleton"; // 🆕 Skeleton import
+import HeroSkeleton from "@/components/skeleton/HeroSkeleton"; 
 
 const Hero = () => {
   const [slides, setSlides] = useState<ISlideType[]>([]);
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
-  const [loading, setLoading] = useState<boolean>(true); // 🆕 loading state
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchSlides = async () => {
@@ -26,7 +26,7 @@ const Hero = () => {
       } catch (error) {
         console.error("Failed to fetch slides:", error);
       } finally {
-        setLoading(false); // 🆕 loading false
+        setLoading(false); 
       }
     };
 
@@ -34,11 +34,11 @@ const Hero = () => {
   }, []);
 
   if (loading) {
-    return <HeroSkeleton />; // 🆕 loading paytida Skeleton chiqadi
+    return <HeroSkeleton />;
   }
 
   return (
-    <section className="relative">
+    <section className="relative mt-18">
       <Swiper
         style={{
           "--swiper-navigation-color": "#fff",

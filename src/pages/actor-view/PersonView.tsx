@@ -53,8 +53,7 @@ const PersonView = () => {
  
 
   return (
-    <div className="container mx-auto px-4 py-8 space-y-10">
-     
+    <div className="container mt-14 mx-auto px-4 py-8 space-y-10">
       <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
         <img
           src={person.profile_path ? IMAGE_URL + person.profile_path : "/no-profile.png"}

@@ -5,8 +5,9 @@ import Hero from '@/components/hero/Hero'
 import go from '@/assets/go.svg'
 import { useNavigate } from 'react-router-dom'
 import SkeletonCard from '@/components/skeleton/SkeletonCard' 
-
+import { useScrollToTop } from "@/hooks/useScrollToTop";
 const Home = () => {
+  useScrollToTop()
   const navigate = useNavigate()
   const { getMovies } = useMovie()
   const { data, isLoading } = getMovies({
@@ -15,7 +16,7 @@ const Home = () => {
   })
 
   return (
-    <div className='container mx-auto min-h-[80vh]'>
+    <div className='container mt-18 mx-auto min-h-[80vh]'>
       <Hero />
       <div
         className='flex items-center justify-end mb-5 mt-5 gap-3 cursor-pointer'

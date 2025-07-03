@@ -6,8 +6,9 @@ import { useGenre } from "@/api/hooks/useGenre";
 import Genre from "@/components/genre/Genre";
 import SkeletonCard from "@/components/skeleton/SkeletonCard";
 import { useParamsHook } from "@/hooks/UsePramsHook";
-
+import { useScrollToTop } from "@/hooks/useScrollToTop";
 const Movies = () => {
+  useScrollToTop()
   const { getMovies } = useMovie();
   const { getGenres } = useGenre();
   const { getParam, setParam } = useParamsHook();

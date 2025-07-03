@@ -1,8 +1,9 @@
 import React from 'react'
-
+import { useScrollToTop } from "@/hooks/useScrollToTop";
 function Saved() {
+    useScrollToTop()
   return (
-    <div className='container mx-auto min-h-[80vh]'>Saved</div>
+    <div className='container mx-auto mt-18 min-h-[80vh]'>Saved</div>
   )
 }
 

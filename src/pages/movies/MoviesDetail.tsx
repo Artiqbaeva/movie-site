@@ -6,7 +6,9 @@ import MovieView from "@/components/movie-view/MovieView";
 import { useEffect } from "react";
 import { LoadingOutlined } from "@ant-design/icons";
 import { Spin } from "antd";
+import { useScrollToTop } from "@/hooks/useScrollToTop";
 const MovieDetail = () => {
+    useScrollToTop()
   const { id } = useParams();
   const { getMovieSingle, getMovieDetail } = useMovie();
   const antIcon = (
@@ -30,7 +32,7 @@ const MovieDetail = () => {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 mt-14">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         <div>
           <img
