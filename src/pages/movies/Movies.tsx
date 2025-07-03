@@ -1,22 +1,22 @@
 import { useMovie } from "@/api/hooks/useMovie";
 import MovieView from "@/components/movie-view/MovieView";
-import React, { useState} from "react";
-import {Pagination} from "antd"
+import React, { useState } from "react";
+import { Pagination } from "antd";
 import { useGenre } from "@/api/hooks/useGenre";
 import Genre from "@/components/genre/Genre";
-
+import SkeletonCard from "@/components/skeleton/SkeletonCard";
 
 const Movies = () => {
   const { getMovies } = useMovie();
-  const { getGenres } = useGenre()
+  const { getGenres } = useGenre();
 
-  const { data: genreData } = getGenres()
+  const { data: genreData } = getGenres();
 
   const [page, setPage] = useState(1);
 
-  const { data } = getMovies({
+  const { data, isLoading } = getMovies({
     page: page,
-    without_genres: "18,36,27,10749"
+    without_genres: "18,36,27,10749",
   });
 
   const handlePageChange = (pageNumber: number) => {
@@ -25,13 +25,17 @@ const Movies = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 pb-10 space-y-12">
+    <div className="container mx-auto px-4 pb-10 space-y-12 min-h-[80vh]">
       <section>
         <Genre data={genreData?.genres} />
       </section>
 
       <section>
-        <MovieView data={data?.results} />
+        <MovieView
+          data={data?.results}
+          loading={isLoading}
+          SkeletonComponent={<SkeletonCard />}
+        />
       </section>
 
       <section className="flex justify-center">

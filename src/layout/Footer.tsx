@@ -1,9 +1,15 @@
 import logo from "../assets/main-logo.svg";
 import { useNavigate } from "react-router-dom";
+import playmarket from '@/assets/playmarket.svg'
+import apple from '@/assets/apple.svg'
+import first from '@/assets/first.svg'
+import second from '@/assets/second.svg'
+import third from '@/assets/third.svg'
+import fourth from  '@/assets/fourth.svg'
 const Footer = () => {
   const navigate = useNavigate();
   return (
-    <footer className="bg-transparent text-black dark:bg-[#111111] container rounded-xl mx-auto px-4 py-10 mt-10">
+    <footer className="bg-transparent text-black dark:bg-[#111111] container  rounded-xl mx-auto px-4 py-10 mt-10">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-14">
        
       <div>
@@ -13,30 +19,42 @@ const Footer = () => {
     className="h-12 mb-4 cursor-pointer"
     onClick={() => navigate("/")}
   />
-  <div className="flex flex-col sm:flex-row sm:justify-start sm:space-x-6 mt-4 cursor-pointer">
+  <div className="flex gap-2 lg:flex-col sm:flex-row sm:justify-start sm:space-x-6 mt-4 cursor-pointer">
     <img
-      src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+      src={playmarket}
       alt="Google Play"
       className="w-40 sm:w-36" 
     />
     <img
-      src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+      src={apple}
       alt="App Store"
-      className="w-40 sm:w-36 mt-2 " 
+      className="w-40 sm:w-36  " 
     />
   </div>
 </div>
 
 
         
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-6">
           <div>
             <p className="mb-2 font-bold dark:text-gray-300">About us</p>
             <ul className="space-y-1 text-sm dark:text-gray-300">
-              <li>Public offer</li>
-              <li>Advertising</li>
-              <li>FAQ</li>
-              <li>Contacts</li>
+             <div className="flex gap-1">
+             <img src={first} alt="" />
+             <li>Public offer</li> 
+             </div>
+              <div className="flex gap-1">
+                <img src={second} alt="" />
+                <li>Advertising</li>
+              </div>
+              <div className="flex gap-1">
+                <img src={third} alt="" />
+                <li>FAQ</li>
+              </div>
+              <div className="flex gap-1">
+                <img src={fourth} alt="" />
+                <li>Contacts</li>
+              </div>
             </ul>
           </div>
           <div>

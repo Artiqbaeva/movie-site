@@ -9,10 +9,12 @@ import { api } from "@/api";
 import { IMAGE_URL } from "@/const";
 import type { ISlideType } from "@/types";
 import type { Swiper as SwiperType } from "swiper";
+import HeroSkeleton from "@/components/skeleton/HeroSkeleton"; // 🆕 Skeleton import
 
 const Hero = () => {
   const [slides, setSlides] = useState<ISlideType[]>([]);
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
+  const [loading, setLoading] = useState<boolean>(true); // 🆕 loading state
 
   useEffect(() => {
     const fetchSlides = async () => {
@@ -23,11 +25,17 @@ const Hero = () => {
         setSlides(latestFive);
       } catch (error) {
         console.error("Failed to fetch slides:", error);
+      } finally {
+        setLoading(false); // 🆕 loading false
       }
     };
 
     fetchSlides();
   }, []);
+
+  if (loading) {
+    return <HeroSkeleton />; // 🆕 loading paytida Skeleton chiqadi
+  }
 
   return (
     <section className="relative">
@@ -42,7 +50,7 @@ const Hero = () => {
         autoplay={{ delay: 3000 }}
         thumbs={{ swiper: thumbsSwiper }}
         modules={[FreeMode, Navigation, Thumbs, Autoplay]}
-        className="h-[640px] mb-[20px]"
+        className="mb-[20px]"
       >
         {slides.map((slide) => (
           <SwiperSlide key={slide.id}>
@@ -53,8 +61,12 @@ const Hero = () => {
                 className="object-cover w-full h-full rounded-xl"
               />
               <div className="absolute bottom-6 left-6 text-white">
-                <h2 className="text-2xl font-bold">{slide.title || slide.name}</h2>
-                <button className="bg-red-600 px-4 py-2 mt-2 rounded cursor-pointer">Watch</button>
+                <h2 className="text-2xl font-bold">
+                  {slide.title || slide.name}
+                </h2>
+                <button className="bg-red-600 px-4 py-2 mt-2 rounded cursor-pointer">
+                  Watch
+                </button>
               </div>
             </div>
           </SwiperSlide>
@@ -69,14 +81,14 @@ const Hero = () => {
         freeMode={true}
         watchSlidesProgress={true}
         modules={[FreeMode, Navigation, Thumbs]}
-        className="mySwiper"
+        className="mySwiper lg:w-[400px] md:w-[300px] sm:w-[300px]"
       >
         {slides.map((slide) => (
           <SwiperSlide key={`thumb-${slide.id}`}>
             <img
               src={`${IMAGE_URL}${slide.poster_path || slide.backdrop_path}`}
               alt={slide.title || slide.name}
-              className="object-cover w-full h-20  rounded-md"
+              className="object-cover w-28 h-20 rounded-md"
             />
           </SwiperSlide>
         ))}

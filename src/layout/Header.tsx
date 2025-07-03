@@ -43,7 +43,7 @@ const Header = () => {
     <RiMovieLine />
     <span>Movies</span>
   </NavLink>
-  <NavLink className="flex flex-col items-center space-x-1 hover:text-red-500" to="#">
+  <NavLink className="flex flex-col items-center space-x-1 hover:text-red-500" to={"/saved"}>
     <FaRegBookmark />
     <span>Saved</span>
   </NavLink>

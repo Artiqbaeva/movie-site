@@ -1,25 +1,25 @@
 import React from "react";
 import { IMAGE_URL } from "@/const";
 import type { IMovie } from "@/types";
-import SkeletonCard from "@/components/skeleton/SkeletonCard";
 
 interface Props {
   data?: IMovie[];
   loading?: boolean;
+  SkeletonComponent?: React.ReactNode; 
 }
 
-function MovieView({ data, loading = false }: Props) {
+function MovieView({ data, loading = false, SkeletonComponent }: Props) {
   if (loading) {
     return (
       <div className="container mx-auto grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-5">
-        {Array.from({ length: 8 }).map((_, index) => (
-          <SkeletonCard key={index} />
+        {Array.from({ length: 8 }).map((_, i) => (
+          <React.Fragment key={i}>{SkeletonComponent}</React.Fragment>
         ))}
       </div>
     );
   }
 
-  if (!loading && (!data || data.length === 0)) {
+  if (!data || data.length === 0) {
     return (
       <div className="container mx-auto text-center text-gray-500 py-10">
         No movies found.
@@ -29,7 +29,7 @@ function MovieView({ data, loading = false }: Props) {
 
   return (
     <div className="container mx-auto grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-5">
-      {data?.map((movie) => (
+      {data.map((movie) => (
         <div
           key={movie.id}
           className="dark:bg-[#111111] bg-white rounded-xl shadow hover:shadow-lg transition"
