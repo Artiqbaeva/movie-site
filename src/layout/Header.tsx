@@ -29,14 +29,46 @@ const Header = () => {
 
   return (
     <>
-     
-      <div className="w-full dark:bg-black fixed rigth-0 top-0 left-0 z-50 ">
-        <nav className="flex container mx-auto justify-between  items-center px-6 py-4 bg-transparent dark:bg-black">
+      <div className="w-full dark:bg-black fixed top-0 left-0 right-0 z-50">
+        <nav className="flex container mx-auto justify-between items-center px-6 py-4 bg-transparent dark:bg-black">
           <NavLink to="/">
             <img src={logo} className="cursor-pointer h-10" alt="Logo" />
           </NavLink>
 
           <div className="flex items-center space-x-4">
+           
+            <div className="hidden md:flex items-center space-x-4 text-white">
+            <NavLink
+          to="/"
+          className="flex flex-col items-center text-white hover:text-red-500"
+        >
+          <GoHome className="w-6 h-6" />
+          <span className="text-xs">Home</span>
+        </NavLink>
+        <NavLink
+          to="/movies"
+          className="flex flex-col items-center text-white hover:text-red-500"
+        >
+          <RiMovieLine className="w-6 h-6" />
+          <span className="text-xs">Movies</span>
+        </NavLink>
+        <NavLink
+          to="/saved"
+          className="flex flex-col items-center text-white hover:text-red-500"
+        >
+          <FaRegBookmark className="w-6 h-5" />
+          <span className="text-xs">Saved</span>
+        </NavLink>
+        <NavLink
+          to="/search"
+          className="flex flex-col items-center text-white hover:text-red-500"
+        >
+          <IoSearch className="w-6 h-5" />
+          <span className="text-xs">Search</span>
+        </NavLink>
+            </div>
+            </div>
+            <div className="flex items-center gap-4">
             <button
               onClick={handleTheme}
               className="text-gray-800 cursor-pointer dark:text-gray-200"
@@ -50,12 +82,13 @@ const Header = () => {
             <button className="bg-red-600 px-4 py-2 rounded text-white cursor-pointer">
               Login
             </button>
-          </div>
+            </div>
+         
         </nav>
       </div>
 
-      
-      <div className="fixed hidden bottom-0 max-[500px]:flex left-0 right-0 bg-[#111] dark:bg-black border-t border-[#111] dark:border-[#111]  justify-around items-center py-2 z-50">
+      {/* Mobile bottom nav */}
+      <div className="fixed md:hidden bottom-0 left-0 right-0 bg-[#111] dark:bg-black border-t border-[#111] dark:border-[#111] flex justify-around items-center py-2 z-50">
         <NavLink
           to="/"
           className="flex flex-col items-center text-white hover:text-red-500"

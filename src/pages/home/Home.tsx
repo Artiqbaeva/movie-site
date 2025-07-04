@@ -19,11 +19,11 @@ const Home = () => {
     <div className='container mt-18 mx-auto min-h-[80vh]'>
       <Hero />
       <div
-        className='flex items-center justify-end mb-5 mt-5 gap-3 cursor-pointer'
+        className='flex items-center justify-end mb-5 mt-5 gap-2 cursor-pointer'
         onClick={() => navigate('/movies')}
       >
-        <p className='text-red-600'>Show all</p>
-        <img src={go} alt="" />
+        <p className='text-red-600 '>Show all</p>
+        <img className='mr-3' src={go} alt="" />
       </div>
       <MovieView
         data={data?.results?.slice(0, 4)}
