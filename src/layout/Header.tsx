@@ -55,7 +55,7 @@ const Header = () => {
       </div>
 
       
-      <div className="fixed hidden bottom-0 left-0 right-0 bg-[#111] dark:bg-black border-t border-[#111] dark:border-[#111]  justify-around items-center py-2 z-50">
+      <div className="fixed hidden bottom-0 max-[500px]:flex left-0 right-0 bg-[#111] dark:bg-black border-t border-[#111] dark:border-[#111]  justify-around items-center py-2 z-50">
         <NavLink
           to="/"
           className="flex flex-col items-center text-white hover:text-red-500"
