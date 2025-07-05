@@ -11,7 +11,7 @@ function Saved() {
   const navigate = useNavigate();
 
   return (
-    <div className="container mx-auto mt-18 min-h-[80vh] px-4">
+    <div className="container mx-auto mt-18 min-h-[90vh] px-4">
       <h2 className="text-3xl font-bold mb-8 dark:text-white">Saved Movies</h2>
 
       {saved.length === 0 ? (
@@ -35,9 +35,9 @@ function Saved() {
               />
               <button
                 onClick={() => removeMovie(movie.id)}
-                className="absolute top-2 right-2 text-red-500  text-xl"
+                className="absolute top-2  right-2 text-red-500  text-xl"
               >
-                <FaBookmark />
+                <FaBookmark className="cursor-pointer" />
               </button>
 
               <div className="p-4 flex-1 flex flex-col">

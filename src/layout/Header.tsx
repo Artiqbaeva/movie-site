@@ -36,33 +36,33 @@ const Header = () => {
             <img src={logo} className="cursor-pointer h-10" alt="Logo" />
           </NavLink>
 
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-6">
            
-            <div className="hidden md:flex items-center space-x-4 text-white">
+            <div className="hidden md:flex items-center space-x-6 text-white">
             <NavLink
           to="/"
-          className="flex flex-col items-center text-white hover:text-red-500"
+          className="flex flex-col items-center text-black  dark:text-white hover:text-red-500"
         >
           <GoHome className="w-6 h-6" />
           <span className="text-xs">Home</span>
         </NavLink>
         <NavLink
           to="/movies"
-          className="flex flex-col items-center text-white hover:text-red-500"
+          className="flex flex-col items-center text-black  dark:text-white hover:text-red-500"
         >
           <RiMovieLine className="w-6 h-6" />
           <span className="text-xs">Movies</span>
         </NavLink>
         <NavLink
           to="/saved"
-          className="flex flex-col items-center text-white hover:text-red-500"
+          className="flex flex-col items-center text-black  dark:text-white hover:text-red-500"
         >
           <FaRegBookmark className="w-6 h-5" />
           <span className="text-xs">Saved</span>
         </NavLink>
         <NavLink
           to="/search"
-          className="flex flex-col items-center text-white hover:text-red-500"
+          className="flex flex-col items-center text-black  dark:text-white hover:text-red-500"
         >
           <IoSearch className="w-6 h-5" />
           <span className="text-xs">Search</span>

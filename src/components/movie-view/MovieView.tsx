@@ -46,7 +46,7 @@ function MovieView({ data, loading = false, SkeletonComponent }: Props) {
               src={
                 movie.poster_path
                   ? IMAGE_URL + movie.poster_path
-                  : "https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-7509.jpg"
+                  : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJnNH6I8IvZndxspJlJ0BDEyUNHxLvNokyWQ&s"
               }
               alt={movie.title}
               onClick={() => navigate(`/movie/${movie.id}`)}
@@ -60,7 +60,7 @@ function MovieView({ data, loading = false, SkeletonComponent }: Props) {
                   ? removeMovie(movie.id)
                   : saveMovie(movie)
               }
-              className="absolute top-2 right-2 text-red-500  text-xl"
+              className="absolute top-2 cursor-pointer right-2 text-red-500  text-xl"
             >
               {isSaved(movie.id) ? <FaBookmark /> : <FaRegBookmark />}
             </button>

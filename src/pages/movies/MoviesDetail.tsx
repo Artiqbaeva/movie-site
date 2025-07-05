@@ -83,7 +83,7 @@ const MovieDetail = () => {
       <div className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">Gallery</h2>
         <div className="flex flex-wrap gap-3">
-          {imagesData?.backdrops?.slice(0, 20).map((item: any, inx: number) => (
+          {imagesData?.backdrops?.slice(0, 14).map((item: any, inx: number) => (
             <Image
               key={inx}
               width={150}

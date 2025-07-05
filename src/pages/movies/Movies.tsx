@@ -24,6 +24,7 @@ const Movies = () => {
 
   const handlePagination = (value: number) => {
     setParam("page", value.toString());
+    window.scrollTo({ top: 0, behavior: "smooth" }); 
   };
 
   const { data: genreData } = getGenres();
