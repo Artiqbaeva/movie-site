@@ -39,7 +39,7 @@ function MovieView({ data, loading = false, SkeletonComponent }: Props) {
           <div>
             <img
               loading="lazy"
-              src={IMAGE_URL + movie.poster_path}
+              src={IMAGE_URL + movie.poster_path ? IMAGE_URL + movie.poster_path : "https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-7509.jpg"}
               alt={movie.title}
               onClick={()=> navigate(`/movie/${movie.id}`)}
               className="rounded-t-xl w-full h-auto cursor-pointer"

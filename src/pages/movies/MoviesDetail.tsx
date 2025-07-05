@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { LoadingOutlined } from "@ant-design/icons";
 import { Spin } from "antd";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
+import SkeletonCard from '@/components/skeleton/SkeletonCard' 
 const MovieDetail = () => {
     useScrollToTop()
   const { id } = useParams();
@@ -36,7 +37,7 @@ const MovieDetail = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         <div>
           <img
-            src={data?.backdrop_path ? IMAGE_URL + data.backdrop_path : "/no-image.png"}
+            src={data?.backdrop_path ? IMAGE_URL + data.backdrop_path : "https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-7509.jpg"}
             alt={data?.title || "Movie poster"}
             className="rounded-lg shadow-lg"
           />
@@ -86,7 +87,7 @@ const MovieDetail = () => {
             <Image
               key={inx}
               width={150}
-              src={item.file_path ? IMAGE_URL + item.file_path : "/no-image.png"}
+              src={item.file_path ? IMAGE_URL + item.file_path : "https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-7509.jpg"}
               alt={`Backdrop ${inx + 1}`}
               className="rounded-md shadow-md"
             />
@@ -105,7 +106,7 @@ const MovieDetail = () => {
             >
               <NavLink to={`/person/${person.id}`}>
                 <img
-                  src={person?.profile_path ? IMAGE_URL + person.profile_path : "/no-profile.png"}
+                  src={person?.profile_path ? IMAGE_URL + person.profile_path : "https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-7509.jpg"}
                   alt={person?.original_name || "Cast member"}
                   className="w-full h-56 object-cover"
                 />
@@ -122,7 +123,7 @@ const MovieDetail = () => {
      
       <div className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">Related Movies</h2>
-        <MovieView data={similarData?.results?.slice(0, 4)} />
+        <MovieView SkeletonComponent={<SkeletonCard />} data={similarData?.results?.slice(0, 4)} />
       </div>
     </div>
   );

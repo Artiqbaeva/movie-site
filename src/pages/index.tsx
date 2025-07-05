@@ -11,6 +11,7 @@ const Home = lazy(() => import("./home/Home"));
 const Movies = lazy(() => import("./movies/Movies"));
 
 const MainRouter = () => {
+
   return useRoutes([
     {
       path: "/",

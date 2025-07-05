@@ -56,7 +56,7 @@ const Hero = () => {
           <SwiperSlide key={slide.id}>
             <div className="relative h-[640px]">
               <img
-                src={`${IMAGE_URL}${slide.backdrop_path || slide.poster_path}`}
+                src={`${IMAGE_URL}${slide.backdrop_path ? slide.poster_path: "https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-7509.jpg" }`}
                 alt={slide.title || slide.name}
                 className="object-cover w-full h-full rounded-xl"
               />
@@ -86,7 +86,7 @@ const Hero = () => {
         {slides.map((slide) => (
           <SwiperSlide key={`thumb-${slide.id}`}>
             <img
-              src={`${IMAGE_URL}${slide.poster_path || slide.backdrop_path}`}
+              src={`${IMAGE_URL}${slide.poster_path ? slide.backdrop_path: "https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-7509.jpg"}`}
               alt={slide.title || slide.name}
               className="object-cover w-28 h-20 rounded-md"
             />
