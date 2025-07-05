@@ -47,7 +47,7 @@ const MovieDetail = () => {
           <h1 className="text-4xl font-bold mb-2">{data?.title}</h1>
 
           <div className="flex items-center gap-4 mb-4">
-            <span className="bg-red-600 text-white px-2 py-1 rounded">
+            <span className="bg-red-500 text-white px-2 py-1 rounded">
               {data?.vote_average ? data.vote_average.toFixed(1) : "N/A"}
             </span>
             <span className="text-gray-500">{data?.release_date?.slice(0, 4)}</span>

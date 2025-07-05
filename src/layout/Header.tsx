@@ -84,7 +84,7 @@ const Header = () => {
                    type="primary"
                    danger
                    block
-                   className="outline-none bg-red-600 border-none text-white rounded"
+                   className="outline-none border-none text-white rounded"
                    >
                  Login
                </Button>

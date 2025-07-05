@@ -28,18 +28,26 @@ const Search: React.FC = () => {
 
 
   return (
-    <div className="dark:bg-black  container mx-auto min-h-screen pt-28 px-1">
-      <div className="max-w-md mx-auto mb-8">
-        <Input
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search movie..."
-          size="large"
-          style={{ borderColor: "red" }}
-          prefix={<SearchOutlined className="text-gray-400" />}
-          className="bg-[#1e1e1e] outline-none  rounded-full px-4 py-2"
-        />
-      </div>
+    <div className="container mx-auto min-h-screen pt-28 px-1">
+      <div className="max-w-md  mx-auto mb-8">
+            <Input
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search movie..."
+              size="large"
+              style={{
+                borderColor: "red",
+                backgroundColor: "#111",
+                
+              }}
+              prefix={
+                <SearchOutlined
+                  style={{ color: "red" }}
+                />
+              }
+              className="bg-[#111] outline-none rounded-full px-4 py-2 custom-input-text"
+            />
+          </div>
 
       {isLoading ? (
         <div className="flex justify-center py-20">

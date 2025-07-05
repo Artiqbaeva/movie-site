@@ -22,7 +22,7 @@ const Home = () => {
         className='flex items-center justify-end mb-5 mt-5 gap-2 cursor-pointer'
         onClick={() => navigate('/movies')}
       >
-        <p className='text-red-600 '>Show all</p>
+        <p className='text-red-500 '>Show all</p>
         <img className='mr-3' src={go} alt="" />
       </div>
       <MovieView

@@ -29,4 +29,3 @@ export interface IPerson {
     place_of_birth: string;
     profile_path: string;
   }
-  

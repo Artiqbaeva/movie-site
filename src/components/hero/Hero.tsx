@@ -10,12 +10,13 @@ import { IMAGE_URL } from "@/const";
 import type { ISlideType } from "@/types";
 import type { Swiper as SwiperType } from "swiper";
 import HeroSkeleton from "@/components/skeleton/HeroSkeleton"; 
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
   const [slides, setSlides] = useState<ISlideType[]>([]);
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
-
+  const navigate = useNavigate()
   useEffect(() => {
     const fetchSlides = async () => {
       try {
@@ -64,7 +65,7 @@ const Hero = () => {
                 <h2 className="text-2xl font-bold">
                   {slide.title || slide.name}
                 </h2>
-                <button className="bg-red-600 px-4 py-2 mt-2 rounded cursor-pointer">
+                <button onClick={() => navigate(`/movie/${slide.id}`)} className="bg-red-500 px-4 py-2 mt-2 rounded cursor-pointer">
                   Watch
                 </button>
               </div>

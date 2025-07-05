@@ -1,4 +1,3 @@
-// import { Suspense } from "react";
 import MainRouter from "./pages";
 import Suspense from '@/utils/index'
 

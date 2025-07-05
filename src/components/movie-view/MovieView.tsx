@@ -66,7 +66,7 @@ function MovieView({ data, loading = false, SkeletonComponent }: Props) {
             </button>
 
            
-            <p className="absolute top-2 left-2 text-white bg-red-600 px-2 rounded text-sm">
+            <p className="absolute top-2 left-2 text-white bg-red-500 px-2 rounded text-sm">
               {movie.release_date.split("-")[0]}
             </p>
           </div>
