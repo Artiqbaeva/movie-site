@@ -28,15 +28,16 @@ const Search: React.FC = () => {
 
 
   return (
-    <div className="bg-black container mx-auto min-h-screen pt-28 px-1">
+    <div className="dark:bg-black  container mx-auto min-h-screen pt-28 px-1">
       <div className="max-w-md mx-auto mb-8">
         <Input
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search movie..."
           size="large"
+          style={{ borderColor: "red" }}
           prefix={<SearchOutlined className="text-gray-400" />}
-          className="bg-[#1e1e1e] outline-none text-red-600 rounded-full px-4 py-2"
+          className="bg-[#1e1e1e] outline-none  rounded-full px-4 py-2"
         />
       </div>
 
@@ -50,7 +51,7 @@ const Search: React.FC = () => {
             data.results.slice(0, 8).map((movie: IMovie) => (
               <div
                 key={movie.id}
-                className="bg-[#1e1e1e] rounded-xl overflow-hidden shadow hover:shadow-lg transition"
+                className="dark:bg-[#1e1e1e] rounded-xl overflow-hidden shadow hover:shadow-lg transition flex flex-col"
               >
                 <img
                   src={
@@ -61,28 +62,27 @@ const Search: React.FC = () => {
                   alt={movie.title}
                   className="w-full h-[300px] object-cover"
                 />
-                <div className="p-4 space-y-2">
-                  <h3 className="text-white font-semibold text-lg line-clamp-2">
+                <div className="p-4  flex flex-col flex-1">
+                  <h3 className="dark:text-white font-semibold text-lg line-clamp-2">
                     {movie.title}
                   </h3>
-                  <p className="text-gray-400 text-sm">
-                   
-                    {movie.release_date?.slice(0, 4)} •{" "}
-                    
+                  <p className="text-gray-400 text-sm mb-3">
+                    {movie.release_date?.slice(0, 4)} •{" "}       
                     {movie.original_language?.toUpperCase()} •{" "}
-                   
                     {movie.adult ? "18+" : "All Ages"}
                   </p>
                   
-                  <Button
-                    type="primary"
-                    danger
-                    block
-                    className="mt-2 outline-none bg-red-600 border-none text-white rounded"
-                    onClick={() => navigate(`/movie/${movie.id}`)} 
-                  >
-                    See movie
-                  </Button>
+                  <div className="mt-auto">
+                 <Button
+                   type="primary"
+                   danger
+                   block
+                   className="outline-none  bg-[#ddd] border-none text-white rounded"
+                   onClick={() => navigate(`/movie/${movie.id}`)}
+                   >
+                 See movie
+               </Button>
+              </div>
                 </div>
               </div>
             ))
