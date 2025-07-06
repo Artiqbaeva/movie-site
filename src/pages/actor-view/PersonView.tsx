@@ -85,7 +85,7 @@ const PersonView = () => {
               >
                 <NavLink to={`/movie/${movie.id}`}>
                  <img
-                     src={movie.poster_path ? IMAGE_URL + movie.poster_path : "https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-7509.jpg"}
+                     src={movie.poster_path ? IMAGE_URL + movie.poster_path : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJnNH6I8IvZndxspJlJ0BDEyUNHxLvNokyWQ&s"}
                      alt={movie.title}
                      className="rounded-t-xl w-full h-auto cursor-pointer"
                    />
