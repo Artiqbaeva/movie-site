@@ -4,6 +4,8 @@ import tailwindcss from "@tailwindcss/vite";
 //@ts-ignore
 import path from "path";
 
+
+
 //@ts-ignore
 const root = path.resolve(__dirname, "src");
 

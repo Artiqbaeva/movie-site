@@ -6,7 +6,8 @@ export interface IMovie{
     vote_average: number,
     release_date: string,
     original_language: string,
-    adult: number
+    adult: number,
+    isSaved?: boolean, 
 }
 
 export interface IGenre {

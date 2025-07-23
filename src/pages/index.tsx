@@ -5,6 +5,7 @@ import Saved from "./saved/Saved";
 import MovieDetail from "./movies/MoviesDetail";
 import ActorView from "@/pages/actor-view/PersonView";
 import Search from "./search/Search";
+import Login from "./login/Login";
 
 const Layout = lazy(() => import("./layout/Layout"));
 const Home = lazy(() => import("./home/Home"));
@@ -40,6 +41,10 @@ const MainRouter = () => {
         {
           path: "/search",
           element: <Search />,
+        },
+        {
+          path: "/login",
+          element: <Login />,
         },
       ],
     },

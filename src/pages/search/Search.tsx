@@ -1,37 +1,39 @@
 import React, { useEffect, useState } from "react";
-// import { useScrollToTop } from "@/hooks/useScrollToTop";
 import { useMovie } from "@/api/hooks/useMovie";
 import useDebounce from "@/hooks/useDebounce";
-import { Input, Spin, Button } from "antd";
-import type { IMovie } from "@/types";
+import { Input, Spin } from "antd";
 import { LoadingOutlined, SearchOutlined } from "@ant-design/icons";
-import {IMAGE_URL} from '@/const/index'
-import { useNavigate } from "react-router-dom";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
+import MovieView from "@/components/movie-view/MovieView";
+import { useParamsHook } from "@/hooks/UsePramsHook";
 
 
 const Search: React.FC = () => {
-   useScrollToTop()
-  const navigate = useNavigate();
-  const [query, setQuery] = useState<string>("");
-  const debounced = useDebounce(query);
+  useScrollToTop()
+  const {setParam, getParam} = useParamsHook();
   const { getSearchMovie } = useMovie();
-  const { data, isLoading } = getSearchMovie({ query: debounced.trim() } );
+  const query = getParam("query") || "";
+  const [value, setQuery] = useState(query || "");
+  const debounced = useDebounce(value, 500);
+  const { data, isLoading } = getSearchMovie({ query: query? query : debounced.trim(), page: "1" } );
 
   useEffect(() => {
-    document.title = "Search Movies";
-  }, []);
+    if (debounced) {
+      setParam("query", debounced);
+    } else {
+      setParam("query", "");
+    }
+  }, [  debounced  ]);
 
   const antIcon = (
     <LoadingOutlined style={{ fontSize: 40, color: "#dc2626" }} spin />
   );
 
-
   return (
     <div className="container mx-auto min-h-screen pt-28 px-1">
       <div className="max-w-md  mx-auto mb-8">
             <Input
-              value={query}
+              value={value}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search movie..."
               size="large"
@@ -54,52 +56,13 @@ const Search: React.FC = () => {
           <Spin indicator={antIcon} />
         </div>
       ) : (
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-          {data?.results?.length ? (
-            data.results.slice(0, 8).map((movie: IMovie) => (
-              <div
-                key={movie.id}
-                className="dark:bg-[#1e1e1e] rounded-xl overflow-hidden shadow hover:shadow-lg transition flex flex-col"
-              >
-                <img
-                  src={
-                    movie.poster_path
-                      ? IMAGE_URL + movie.poster_path
-                      : "https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-7509.jpg"
-                  }
-                  alt={movie.title}
-                  className="w-full h-[300px] object-cover"
-                />
-                <div className="p-4  flex flex-col flex-1">
-                  <h3 className="dark:text-white font-semibold text-lg line-clamp-2">
-                    {movie.title}
-                  </h3>
-                  <p className="text-gray-400 text-sm mb-3">
-                    {movie.release_date?.slice(0, 4)} •{" "}       
-                    {movie.original_language?.toUpperCase()} •{" "}
-                    {movie.adult ? "18+" : "All Ages"}
-                  </p>
-                  
-                  <div className="mt-auto">
-                 <Button
-                   type="primary"
-                   danger
-                   block
-                   className="outline-none  bg-[#ddd] border-none text-white rounded"
-                   onClick={() => navigate(`/movie/${movie.id}`)}
-                   >
-                 See movie
-               </Button>
-              </div>
-                </div>
-              </div>
-            ))
-          ) : (
-            debounced && (
-              <p className="col-span-full text-center text-gray-500 dark:text-gray-400 py-6">
-                No results found.
-              </p>
-            )
+        <div className=" gap-6  mx-auto">
+         <div><MovieView data={data?.results}/>
+          </div>  
+          {data?.results?.length === 0 && (
+            <div className="text-center text-gray-500 col-span-4">
+              No results found for "{query}"
+            </div>
           )}
         </div>
       )}

@@ -40,33 +40,55 @@ const Header = () => {
            
             <div className="hidden md:flex items-center space-x-6 text-white">
             <NavLink
-          to="/"
-          className="flex flex-col items-center text-black  dark:text-white hover:text-red-500"
-        >
+            to="/"
+            className={({ isActive }) =>
+              `flex flex-col items-center ${
+                isActive ? "text-red-500" : "text-black dark:text-white"
+              }`
+            }
+          >
+           
+          
           <GoHome className="w-6 h-6" />
           <span className="text-xs">Home</span>
         </NavLink>
         <NavLink
           to="/movies"
-          className="flex flex-col items-center text-black  dark:text-white hover:text-red-500"
+          className={({ isActive }) =>
+            `flex flex-col items-center ${
+              isActive ? "text-red-500" : "text-black dark:text-white"
+            }`
+          }
         >
+         
           <RiMovieLine className="w-6 h-6" />
           <span className="text-xs">Movies</span>
         </NavLink>
         <NavLink
           to="/saved"
-          className="flex flex-col items-center text-black  dark:text-white hover:text-red-500"
+          className={({ isActive }) =>
+            `flex flex-col items-center ${
+              isActive ? "text-red-500" : "text-black dark:text-white"
+            }`
+          }
         >
+          
           <FaRegBookmark className="w-6 h-5" />
           <span className="text-xs">Saved</span>
         </NavLink>
         <NavLink
           to="/search"
-          className="flex flex-col items-center text-black  dark:text-white hover:text-red-500"
+          className={({ isActive }) =>
+            `flex flex-col items-center ${
+              isActive ? "text-red-500" : "text-black dark:text-white"
+            }`
+          }
         >
+        
           <IoSearch className="w-6 h-5" />
           <span className="text-xs">Search</span>
         </NavLink>
+        
             </div>
             </div>
             <div className="flex items-center gap-4">
@@ -84,9 +106,13 @@ const Header = () => {
                    type="primary"
                    danger
                    block
+                    onClick={() => {
+                      window.location.href = "/login";
+                    }}
                    className="outline-none border-none text-white rounded"
                    >
                  Login
+                 
                </Button>
             </div>
          
