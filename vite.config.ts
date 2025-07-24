@@ -17,4 +17,9 @@ export default defineConfig({
       "@": root,
     } as AliasOptions,
   },
+  server: {
+    allowedHosts: ["311a0183cad8.ngrok-free.app"]
+  }
 });
+
+

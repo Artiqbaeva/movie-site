@@ -58,7 +58,7 @@ function MovieView({ data, loading = false, SkeletonComponent }: Props) {
 
                   <button
                  onClick={() => toggleSave(movie)}
-                   className="absolute top-2 right-2 text-white bg-red-500 rounded-full p-2 hover:bg-red-600 transition"
+                   className="absolute top-2 right-2 text-white bg-red-500 rounded-full p-2 "
                  >
                  {isSaved ? <FaBookmark className="text-white" /> : <FaRegBookmark />}
                    </button>
