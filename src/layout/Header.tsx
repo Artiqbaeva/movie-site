@@ -75,16 +75,22 @@ const Header = () => {
           </button>
 
           {auth ? (
-            <div className="flex items-center gap-4">
-              <img src={auth.picture} alt={auth.name} className="w-8 h-8 rounded-full" referrerPolicy="no-referrer" />
-              <span className="text-black dark:text-white">{auth.name}</span>
-              <Button danger onClick={logout}>Logout</Button>
-            </div>
-          ) : (
-            <NavLink to="/login">
-              <Button type="primary" danger className="outline-none border-none text-white rounded">Login</Button>
-            </NavLink>
-          )}
+               <div className="flex items-center gap-4">
+                 <img
+                   onClick={logout}
+                   src={auth.picture}
+                   alt={auth.name}
+                   className="w-8 h-8 rounded-full cursor-pointer"
+                   referrerPolicy="no-referrer"
+                   />
+               </div>
+             ) : (
+               <NavLink to="/login">
+                 <Button type="primary" danger className="outline-none border-none text-white rounded">
+                   Login
+                 </Button>
+               </NavLink>
+             )}
           </div>
        
 
@@ -125,7 +131,7 @@ const Header = () => {
         <NavLink
           to="/search"
           className={({ isActive }) =>
-                  `flex flex-col items-center ${
+                      `flex flex-col items-center ${
                     isActive ? "text-red-500" : "text-black dark:text-white"
                   }`
                 }
