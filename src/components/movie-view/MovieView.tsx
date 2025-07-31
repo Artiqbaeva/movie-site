@@ -13,7 +13,15 @@ interface Props {
 
 function MovieView({ data, loading = false, SkeletonComponent }: Props) {
   const navigate = useNavigate();
-  const { toggleSave, saved } = useStore(); 
+  const { toggleSave, saved, auth } = useStore(); 
+
+  const handleSave = (movie: IMovie) => {
+    if (!auth?.email) {
+      navigate("/login"); 
+      return;
+    }
+    toggleSave(movie);
+  };
 
   if (loading) {
     return (
@@ -57,7 +65,7 @@ function MovieView({ data, loading = false, SkeletonComponent }: Props) {
               />
 
                   <button
-                 onClick={() => toggleSave(movie)}
+                 onClick={() => handleSave(movie)} 
                    className="absolute top-2 right-2 text-white bg-red-500 rounded-full p-2 "
                  >
                  {isSaved ? <FaBookmark className="text-white" /> : <FaRegBookmark />}

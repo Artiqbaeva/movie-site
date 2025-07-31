@@ -2,8 +2,10 @@ import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import React from "react";
 import { jwtDecode } from "jwt-decode";
 import { useStore } from "@/zustand/useStore";
+import { useScrollToTop } from "@/hooks/useScrollToTop";
 
 const Login = () => {
+  useScrollToTop();
   const setAuth = useStore((state) => state.setAuth);
 
   interface DecodedToken {
@@ -44,8 +46,8 @@ const Login = () => {
 
   return (
     <GoogleOAuthProvider clientId="YOUR_CLIENT_ID">
-      <div className="flex items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors px-4">
-        <div className="bg-white dark:bg-gray-800 shadow-xl rounded-2xl p-10 w-full max-w-md">
+      <div className="flex items-center justify-center min-h-screen bg-gray-50 dark:bg-black transition-colors px-4">
+        <div className="bg-white dark:bg-[#111] shadow-xl rounded-2xl p-10 w-full max-w-md">
           <h1 className="text-3xl font-bold mb-8 text-gray-800 dark:text-white text-center">
            Login
           </h1>

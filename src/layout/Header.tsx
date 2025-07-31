@@ -6,14 +6,13 @@ import { GoHome } from "react-icons/go";
 import { RiMovieLine } from "react-icons/ri";
 import { IoSearch } from "react-icons/io5";
 import { FaRegBookmark } from "react-icons/fa";
-import { Button } from "antd";
 import { useStore } from "@/zustand/useStore";
+import ProfileMenu from "@/pages/login/ProfileMenu";
 
 const Header = () => {
   const [darkMode, setDarkMode] = React.useState(false);
-  const auth = useStore(state => state.auth);
-  const setAuth = useStore(state => state.setAuth);
-  const logout = useStore(state => state.logout);
+  const auth = useStore((state) => state.auth);
+  const setAuth = useStore((state) => state.setAuth);
 
   React.useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
@@ -46,100 +45,54 @@ const Header = () => {
           <img src={logo} className="cursor-pointer h-10" alt="Logo" />
         </NavLink>
 
-       
-          <div className="hidden md:flex items-center space-x-6 text-white">
-            {[
-              { to: "/", icon: <GoHome className="w-6 h-6" />, label: "Home" },
-              { to: "/movies", icon: <RiMovieLine className="w-6 h-6" />, label: "Movies" },
-              { to: "/saved", icon: <FaRegBookmark className="w-6 h-5" />, label: "Saved" },
-              { to: "/search", icon: <IoSearch className="w-6 h-5" />, label: "Search" },
-            ].map((item) => (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                className={({ isActive }) =>
-                  `flex flex-col items-center ${
-                    isActive ? "text-red-500" : "text-black dark:text-white"
-                  }`
-                }
-              >
-                {item.icon}
-                <span className="text-xs">{item.label}</span>
-              </NavLink>
-            ))}
-          </div>
+        <div className="hidden md:flex items-center space-x-6 text-white">
+          {[{ to: "/", icon: <GoHome className="w-6 h-6" />, label: "Home" },
+            { to: "/movies", icon: <RiMovieLine className="w-6 h-6" />, label: "Movies" },
+            { to: "/saved", icon: <FaRegBookmark className="w-6 h-5" />, label: "Saved" },
+            { to: "/search", icon: <IoSearch className="w-6 h-5" />, label: "Search" },
+          ].map((item) => (
+            <NavLink
+              key={item.to}
+              to={item.to}
+              className={({ isActive }) =>
+                `flex flex-col items-center ${
+                  isActive ? "text-red-500" : "text-black dark:text-white"
+                }`
+              }
+            >
+              {item.icon}
+              <span className="text-xs">{item.label}</span>
+            </NavLink>
+          ))}
+        </div>
 
-          <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4">
           <button onClick={handleTheme} className="text-gray-800 cursor-pointer dark:text-gray-200">
             {darkMode ? <SunIcon className="h-6 w-6" /> : <MoonIcon className="h-6 w-6" />}
           </button>
+          <ProfileMenu />
+        </div>
 
-          {auth ? (
-               <div className="flex items-center gap-4">
-                 <img
-                   onClick={logout}
-                   src={auth.picture}
-                   alt={auth.name}
-                   className="w-8 h-8 rounded-full cursor-pointer"
-                   referrerPolicy="no-referrer"
-                   />
-               </div>
-             ) : (
-               <NavLink to="/login">
-                 <Button type="primary" danger className="outline-none border-none text-white rounded">
-                   Login
-                 </Button>
-               </NavLink>
-             )}
-          </div>
-       
-
-        <div className="fixed md:hidden bottom-0 left-0 right-0 bg-white dark:bg-black  dark:border-[#111] flex justify-around items-center py-2 z-50">
-        <NavLink
-          to="/"
-          className={({ isActive }) =>
-                  `flex flex-col items-center ${
-                    isActive ? "text-red-500" : "text-black dark:text-white"
-                  }`
-                }
-         >
-          <GoHome className="w-6 h-6" />
-          <span className="text-xs">Home</span>
-        </NavLink>
-        <NavLink
-          to="/movies"
-          className={({ isActive }) =>
-            `flex flex-col items-center ${
-              isActive ? "text-red-500" : "text-black dark:text-white"
-            }`
-          }
-         >
-          <RiMovieLine className="w-6 h-5" />
-          <span className="text-xs">Movies</span>
-        </NavLink>
-        <NavLink
-          to="/saved"
-          className={({ isActive }) =>
-                  `flex flex-col items-center ${
-                    isActive ? "text-red-500" : "text-black dark:text-white"
-                  }`
-                }
-         >
-          <FaRegBookmark className="w-6 h-5" />
-          <span className="text-xs">Saved</span>
-        </NavLink>
-        <NavLink
-          to="/search"
-          className={({ isActive }) =>
-                      `flex flex-col items-center ${
-                    isActive ? "text-red-500" : "text-black dark:text-white"
-                  }`
-                }
-         >
-          <IoSearch className="w-6 h-5" />
-          <span className="text-xs">Search</span>
-        </NavLink>
-       </div>
+        <div className="fixed md:hidden bottom-0 left-0 right-0 bg-white dark:bg-black dark:border-[#111] flex justify-around items-center py-2 z-50">
+          {[{ to: "/", icon: <GoHome className="w-6 h-6" />, label: "Home" },
+            { to: "/movies", icon: <RiMovieLine className="w-6 h-5" />, label: "Movies" },
+            { to: "/saved", icon: <FaRegBookmark className="w-6 h-5" />, label: "Saved" },
+            { to: "/search", icon: <IoSearch className="w-6 h-5" />, label: "Search" },
+          ].map((item) => (
+            <NavLink
+              key={item.to}
+              to={item.to}
+              className={({ isActive }) =>
+                `flex flex-col items-center ${
+                  isActive ? "text-red-500" : "text-black dark:text-white"
+                }`
+              }
+            >
+              {item.icon}
+              <span className="text-xs">{item.label}</span>
+            </NavLink>
+          ))}
+        </div>
       </nav>
     </div>
   );

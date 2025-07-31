@@ -17,31 +17,23 @@ type Store = {
 
 export const useStore = create<Store>((set, get) => ({
   saved: [],
-
   toggleSave: (movie) => {
     const { saved } = get();
     const isSaved = saved.some((m) => m.id === movie.id);
-    const newSaved = isSaved
+    const updated = isSaved
       ? saved.filter((m) => m.id !== movie.id)
       : [...saved, movie];
-
-    if (typeof window !== "undefined") {
-      localStorage.setItem("savedMovies", JSON.stringify(newSaved));
-    }
-    set({ saved: newSaved });
+    localStorage.setItem("savedMovies", JSON.stringify(updated));
+    set({ saved: updated });
   },
 
-  auth: null,
+  auth: JSON.parse(localStorage.getItem("user") || "null"),
   setAuth: (user) => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem("user", JSON.stringify(user));
-    }
+    localStorage.setItem("user", JSON.stringify(user));
     set({ auth: user });
   },
   logout: () => {
-    if (typeof window !== "undefined") {
-      localStorage.removeItem("user");
-    }
+    localStorage.removeItem("user");
     set({ auth: null });
   },
 }));

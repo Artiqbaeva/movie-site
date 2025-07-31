@@ -10,59 +10,89 @@
 }
 
 .ant-pagination-item-active {
-    background-color: #b91c1c !important; 
-    border-color: #b91c1c !important;
-  }
-  
-  .ant-pagination-item-active a {
-    color: #ffffff !important; 
-  }
-  
-  
-  .ant-pagination-item {
-    border: none !important; 
-    background-color: #111111 !important; 
-  }
-  
-  .ant-pagination-item a {
-    color: #ffffff !important; 
-  }
-  
+  background-color: #b91c1c !important;
+  border-color: #b91c1c !important;
+}
 
-  .ant-pagination-item:hover {
-    background-color: #b91c1c !important;
-  }
-  
-  .ant-pagination-item:hover a {
-    color: #ffffff !important; 
-  }
-  
-  
-  .ant-pagination-prev,
-  .ant-pagination-next {
-    border: none !important;
-  }
-  
-  .ant-pagination-prev a,
-  .ant-pagination-next a {
-    color: #ffffff !important;
-  }
-  
+.ant-pagination-item-active a {
+  color: #ffffff !important;
+}
 
-  .ant-pagination-prev:hover,
-  .ant-pagination-next:hover {
-    background-color: #b91c1c !important;
-  }
-  
-  .ant-pagination-prev:hover a,
-  .ant-pagination-next:hover a {
-    color: #ffffff !important;
-  }
+.ant-pagination-item {
+  border: none !important;
+  background-color: #d5d1d1 !important;
+}
 
-  .ant-pagination-jump-prev .ant-pagination-item-container .ant-pagination-item-ellipsis,
-  .ant-pagination-jump-next .ant-pagination-item-container .ant-pagination-item-ellipsis {
-    color: #ffffff !important;
-  }
+.ant-pagination-item a {
+  color: #111 !important;
+}
+
+.ant-pagination-item:hover {
+  background-color: #b91c1c !important;
+}
+
+.ant-pagination-item:hover a {
+  color: #ffffff !important;
+}
+
+.ant-pagination-prev,
+.ant-pagination-next {
+  border: none !important;
+  background-color: #d5d1d1 !important;
+}
+
+.ant-pagination-prev a,
+.ant-pagination-next a {
+  color: #111 !important;
+}
+
+.ant-pagination-prev:hover,
+.ant-pagination-next:hover {
+  background-color: #b91c1c !important;
+}
+
+.ant-pagination-prev:hover a,
+.ant-pagination-next:hover a {
+  color: #ffffff !important;
+}
+
+/* Dark mode override */
+.dark .ant-pagination-item {
+  background-color: #111 !important;
+}
+
+.dark .ant-pagination-item a {
+  color: #ffffff !important;
+}
+
+.dark .ant-pagination-item-active {
+  background-color: #b91c1c !important;
+  border-color: #b91c1c !important;
+}
+
+.dark .ant-pagination-item-active a {
+  color: #ffffff !important;
+}
+
+.dark .ant-pagination-prev,
+.dark .ant-pagination-next {
+  background-color: #111 !important;
+}
+
+.dark .ant-pagination-prev a,
+.dark .ant-pagination-next a {
+  color: #ffffff !important;
+}
+
+.dark .ant-pagination-prev:hover,
+.dark .ant-pagination-next:hover {
+  background-color: #b91c1c !important;
+}
+
+.dark .ant-pagination-prev:hover a,
+.dark .ant-pagination-next:hover a {
+  color: #ffffff !important;
+}
 
 
 .scrollbar-thin {
